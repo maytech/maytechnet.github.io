@@ -61,6 +61,8 @@
             
                 <li data-name="API#disableUserShare"><a href="API.html#disableUserShare">disableUserShare</a></li>
             
+                <li data-name="API#downloadPageMeta"><a href="API.html#downloadPageMeta">downloadPageMeta</a></li>
+            
                 <li data-name="API#editIshare"><a href="API.html#editIshare">editIshare</a></li>
             
                 <li data-name="API#enableUserShare"><a href="API.html#enableUserShare">enableUserShare</a></li>
@@ -82,6 +84,10 @@
                 <li data-name="API#getAllKeys"><a href="API.html#getAllKeys">getAllKeys</a></li>
             
                 <li data-name="API#getContacts"><a href="API.html#getContacts">getContacts</a></li>
+            
+                <li data-name="API#getDownloadAllFilesLink"><a href="API.html#getDownloadAllFilesLink">getDownloadAllFilesLink</a></li>
+            
+                <li data-name="API#getDownloadFilesLink"><a href="API.html#getDownloadFilesLink">getDownloadFilesLink</a></li>
             
                 <li data-name="API#getDownloadLink"><a href="API.html#getDownloadLink">getDownloadLink</a></li>
             
@@ -107,27 +113,19 @@
             
                 <li data-name="API#instantShareAction"><a href="API.html#instantShareAction">instantShareAction</a></li>
             
-                <li data-name="API#instantShareAction"><a href="API.html#instantShareAction">instantShareAction</a></li>
-            
-                <li data-name="API#instantShareMetadata"><a href="API.html#instantShareMetadata">instantShareMetadata</a></li>
-            
                 <li data-name="API#instantShareMetadata"><a href="API.html#instantShareMetadata">instantShareMetadata</a></li>
             
                 <li data-name="API#ishareMetadata"><a href="API.html#ishareMetadata">ishareMetadata</a></li>
             
                 <li data-name="API#keepAlive"><a href="API.html#keepAlive">keepAlive</a></li>
             
-                <li data-name="API#keepAlive"><a href="API.html#keepAlive">keepAlive</a></li>
+                <li data-name="API#keyRequestMetadata"><a href="API.html#keyRequestMetadata">keyRequestMetadata</a></li>
             
-                <li data-name="API#keepAlive"><a href="API.html#keepAlive">keepAlive</a></li>
+                <li data-name="API#listFiles"><a href="API.html#listFiles">listFiles</a></li>
             
-                <li data-name="API#keepAlive"><a href="API.html#keepAlive">keepAlive</a></li>
+                <li data-name="API#loginKeyRequest"><a href="API.html#loginKeyRequest">loginKeyRequest</a></li>
             
-                <li data-name="API#keepAlive"><a href="API.html#keepAlive">keepAlive</a></li>
-            
-                <li data-name="API#keepAlive"><a href="API.html#keepAlive">keepAlive</a></li>
-            
-                <li data-name="API#keepAlive"><a href="API.html#keepAlive">keepAlive</a></li>
+                <li data-name="API#loginReturnFiles"><a href="API.html#loginReturnFiles">loginReturnFiles</a></li>
             
                 <li data-name="API#logout"><a href="API.html#logout">logout</a></li>
             
@@ -136,6 +134,8 @@
                 <li data-name="API#mqReq"><a href="API.html#mqReq">mqReq</a></li>
             
                 <li data-name="API#onApiError"><a href="API.html#onApiError">onApiError</a></li>
+            
+                <li data-name="API#passwordResetMetadata"><a href="API.html#passwordResetMetadata">passwordResetMetadata</a></li>
             
                 <li data-name="API#previewFile"><a href="API.html#previewFile">previewFile</a></li>
             
@@ -153,9 +153,13 @@
             
                 <li data-name="API#requesttoken"><a href="API.html#requesttoken">requesttoken</a></li>
             
-                <li data-name="API#requesttoken"><a href="API.html#requesttoken">requesttoken</a></li>
+                <li data-name="API#returnFilesAction"><a href="API.html#returnFilesAction">returnFilesAction</a></li>
             
-                <li data-name="API#requesttoken"><a href="API.html#requesttoken">requesttoken</a></li>
+                <li data-name="API#returnFilesMetadata"><a href="API.html#returnFilesMetadata">returnFilesMetadata</a></li>
+            
+                <li data-name="API#sendKeys"><a href="API.html#sendKeys">sendKeys</a></li>
+            
+                <li data-name="API#sendKeys"><a href="API.html#sendKeys">sendKeys</a></li>
             
                 <li data-name="API#sendRequest"><a href="API.html#sendRequest">sendRequest</a></li>
             
@@ -223,7 +227,7 @@
      * @memberof API
      * @instance
      * @method onApiError
-     * 
+     * @return something
      */
     this.onApiError = function (args, xhr) {
       return;
@@ -395,6 +399,7 @@
      * @instance
      * @method setRequestFunction
      * @param {function} fn form function
+     * @return somethingoldRequsetFunction
      */
     this.setRequestFunction = function( fn ){
       var oldRequsetFunction = _requestFunction;
@@ -512,6 +517,7 @@
      * @param {string} login plain text
      * @param {string} passwd pbkdf2 user password
      * @param {function} cb callback function
+     * @return something
      */
 
     this.requesttoken = function( login, passwd, cb ){
@@ -533,10 +539,10 @@
      * Login to return files.
      * @memberof API
      * @instance
-     * @method requesttoken
+     * @method loginReturnFiles
      * @param {string} id quatrix id
      * @param {function} cb callback function
-     * 
+     * @return something
      */
 
     this.loginReturnFiles = function (id, cb) {
@@ -565,7 +571,7 @@
      * @instance
      * @method defaultAccountLang
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.defaultAccountLang = function(cb){
       return _request({
@@ -579,10 +585,10 @@
      * Returns metadata about specified return_files page.
      * @memberof API
      * @instance
-     * @method instantShareMetadata
+     * @method returnFilesMetadata
      * @param {string} id return_files id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.returnFilesMetadata = function (id, cb) {
       return _request({
@@ -602,11 +608,11 @@
      * }
      * @memberof API
      * @instance
-     * @method instantShareAction
+     * @method returnFilesAction
      * @param {string} id Quatrix id
      * @param {object} data action data. Pattern in example
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.returnFilesAction = function (id, data, cb) {
       return _request({
@@ -624,7 +630,7 @@
      * @method instantShareMetadata
      * @param {string} id Quatrix id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.instantShareMetadata = function (id, cb) {
       return _request({
@@ -660,7 +666,7 @@
      * @param {string} id instantShare id
      * @param {object} data action data. Pattern in example
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.instantShareAction = function (id, data, cb) {
       if(data.password)
@@ -686,7 +692,7 @@
      * @param {string} id specified user id
      * @param {object} data information about request-files link, which will be generated
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.requestFiles = function (id, data, cb) {
       return _request({
@@ -708,7 +714,7 @@
      * @param {string} id specified user/contact id
      * @param {object} data metadata for request-files page
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.sendRequest = function (id, data, cb) {
       return _request({
@@ -726,7 +732,7 @@
      * @method metadata
      * @param {string} resource id of specified folder
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.metadata = function( resource, cb ){
 
@@ -748,7 +754,7 @@
      * @method getDownloadLink
      * @param {object} data information about files that should be downloaded
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getDownloadLink = function(data, cb){
       return _request( {
@@ -772,7 +778,7 @@
      * @method getUploadLink
      * @param {object} data file metadata
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getUploadLink = function(data, cb){
       
@@ -791,7 +797,7 @@
      * @method finalizeChunkedUpload
      * @param {string} id current upload id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.finalizeChunkedUpload = function(id, cb) {
       return _request({
@@ -810,7 +816,7 @@
      * @param {string} target specified folder id
      * @param {integer} overwrite 
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.filecmdCopy = function( source, target, overwrite, cb ){
       var data = {
@@ -838,7 +844,7 @@
      * @param {string} id id of specified folder or file
      * @param {string} name new file or folder name
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.filecmdRename = function(id, name, cb){
       return _request( {
@@ -860,7 +866,7 @@
      * @param {array} source array with ids of selected items
      * @param {string} target id of selected folder
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.filecmdMove = function(source, target, cb){
       return _request( {
@@ -882,7 +888,7 @@
      * @param {string} name new folder name
      * @param {string} parent parent folder id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.filecmdMakedir = function( name, parent, cb ){
       return _request( {
@@ -903,7 +909,7 @@
      * @method filecmdDelete
      * @param {array} ids array with specified item ids
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.filecmdDelete = function( ids, cb ){
       return _request( {
@@ -922,7 +928,7 @@
      * @instance
      * @method getUsers
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getUsers = function( cb ){
       return _request( {
@@ -939,7 +945,7 @@
      * @method userMetadata
      * @param {string} uuid specified user id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.userMetadata = function(uuuid , cb){
       return _request({
@@ -970,7 +976,7 @@
      * @method userCreate
      * @param {} data
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.userCreate = function( data, cb ){
       if(data.password)
@@ -1006,7 +1012,7 @@
      * @param {string} loginid specified user id
      * @param {object} data information about user
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.userEdit = function( loginid, data, cb ){
       if(data.password)
@@ -1030,7 +1036,7 @@
      * @method userDelete
      * @param {object} data information about specified users
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.userDelete = function(data, cb){
       return _request( {
@@ -1047,7 +1053,7 @@
      * @instance
      * @method getAccountLogoUploadLink
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getAccountLogoUploadLink = function(cb) {
       return _request({
@@ -1063,7 +1069,7 @@
      * @instance
      * @method accountProfile
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.accountProfile = function( cb ){
       return _request( {
@@ -1087,7 +1093,7 @@
      * @method updateAccountProfile
      * @param {object} data new metadata
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.updateAccountProfile = function (data, cb) {
       if(data.password)
@@ -1108,7 +1114,7 @@
      * @method previewFile
      * @param {string} fuuid file uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.previewFile = function(fuuid, cb) {
       return _request({
@@ -1125,7 +1131,7 @@
      * @instance
      * @method getRecipients
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getRecipients = function(cb){
       return _request({
@@ -1142,7 +1148,7 @@
      * @instance
      * @method getContacts
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getContacts = function(cb){
       return _request({
@@ -1164,7 +1170,7 @@
      * @method createContact
      * @param {object} data dictionary with contact data
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.createContact = function(data, cb){
       return _request({
@@ -1188,7 +1194,7 @@
      * @param {string} cuuid contact uuid
      * @param {object} data dictionary contact data
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.updateContact = function(cuuid, data, cb){
       return _request({
@@ -1206,7 +1212,7 @@
      * @method deleteContact
      * @param {string} cuuid contact uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.deleteContact = function( cuuid, cb){
       return _request({
@@ -1223,7 +1229,7 @@
      * @method readUserContact
      * @param {string} cuuid user uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.readUserContact = function( cuuid, cb){
       return _request({
@@ -1240,7 +1246,7 @@
      * @method getTracking
      * @param {string} cuuid iShare uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getTracking = function(cuuid, cb){
       return _request({
@@ -1258,7 +1264,7 @@
      * @param {string} cuuid uuid iShare uuid
      * @param {integer} day specified day
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getTrackingDaily = function(cuuid, day, cb){
       return _request({
@@ -1276,7 +1282,7 @@
      * @param {string} cuuid iShare action
      * @param {string} action_uuid uuid of specified action
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getTrackingFiles = function(cuuid, action_uuid, cb){
       return _request({
@@ -1295,7 +1301,7 @@
      * @param {string} action_uuid uuid of specified action
      * @param {string} file_uuid uuid of required file
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getFilesData = function(cuuid, action_uuid, file_uuid, cb){
       return _request({
@@ -1319,7 +1325,7 @@
      * @param {string} user_id id of specified user
      * @param {object} data information about enabled share
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.enableUserShare = function(user_id, data, cb){
       return _request({
@@ -1337,7 +1343,7 @@
      * @method disableUserShare
      * @param {string} user_id specified user id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.disableUserShare = function(user_id, cb){
       return _request({
@@ -1361,7 +1367,7 @@
      * @param {string} user_id specified user id
      * @param {object} data changed branding information
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.editIshare =  function(user_id, data, cb){
       return _request({
@@ -1385,7 +1391,7 @@
      * @method ishareMetadata
      * @param {string} user_id specified user id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.ishareMetadata = function(user_id, cb){
       return _request({
@@ -1415,7 +1421,7 @@
      * @instance
      * @method accountInfo
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.accountInfo = function(cb){
       return _request({
@@ -1433,7 +1439,7 @@
      * @method getUsersKeys
      * @param {array} user_ids array with user or contact id's
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getUsersKeys = function(user_ids, cb){
       return _request({
@@ -1451,7 +1457,7 @@
      * @method getUserKeys
      * @param {string} uuid user uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getUserKeys = function(uuid, cb){
       return _request({
@@ -1468,7 +1474,7 @@
      * @instance
      * @method getAllKeys
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getAllKeys = function(cb){
       return _request({
@@ -1485,7 +1491,7 @@
      * @method getKeyMetadata
      * @param {string} uuid PGP key uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getKeyMetadata = function (uuid, cb) {
       return _request({
@@ -1502,7 +1508,7 @@
      * @method deleteKey
      * @param {string} uuid key uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.deleteKey = function (uuid, cb) {
       return _request({
@@ -1527,7 +1533,7 @@
      * @param {string} uuid key uuid
      * @param {object} data PGP key metadata
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.updateKey = function (uuid, data, cb) {
       return _request({
@@ -1552,7 +1558,7 @@
      * @method createKey
      * @param {object} data information about key
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.createKey = function (data, cb) {
       return _request({
@@ -1564,13 +1570,13 @@
     };
 
     /**
-     * Returns PGP key for specified contact
+     * Returns PGP key for specified contact.
      * @memberof API
      * @instance
      * @method requestContactKey
      * @param {string} uuid contact uuid 
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.requestContactKey = function (uuid, cb){
       return _request({
@@ -1581,13 +1587,13 @@
     };
 
     /**
-     * Returns PGP key for encrypting password
+     * Returns PGP key for encrypting password.
      * @memberof API
      * @instance
      * @method requestLoginKey
      * @param {string} uuid contact uuid
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.requestLoginKey = function (uuid, cb){
       return _request({
@@ -1598,12 +1604,12 @@
     };
 
     /**
-     * Returns all avaliable languages
+     * Returns all avaliable languages.
      * @memberof API
      * @instance
      * @method requestLanguageList
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.requestLanguageList = function (cb){
       return _request({
@@ -1620,7 +1626,7 @@
      * @method requestPasswordReset
      * @param {string} email email for reset process action
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.requestPasswordReset= function(email, cb){
       return _request( {
@@ -1632,14 +1638,14 @@
     };
 
     /**
-     * Allow you to manage background jobs
+     * Allow you to manage background jobs.
      * @memberof API
      * @instance
      * @method mqReq
      * @param {function} cb callback function
      * @param {integer} l_m last modified date
      * @param {string} etag unique call indetificator
-     * 
+     * @return somethingCallExpression
      */
     this.mqReq = function( cb, l_m, etag ){
 
@@ -1682,7 +1688,7 @@
      * @instance
      * @method logout
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.logout = function(cb){
       return _request( {
@@ -1698,7 +1704,7 @@
      * @instance
      * @method keepAlive
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.keepAlive = function(cb){
       return _request( {
@@ -1712,11 +1718,11 @@
      * Returns metadata for download page.
      * @memberof API
      * @instance
-     * @method keepAlive
+     * @method downloadPageMeta
      * @param {string} id download page id
      * @param {password} password password for download page, if this page under password protection
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.downloadPageMeta = function(id, password, cb){
       return _request({
@@ -1730,11 +1736,11 @@
      * Returns sended files list.
      * @memberof API
      * @instance
-     * @method keepAlive
+     * @method listFiles
      * @param {string} id download page id
      * @param {string} password for download page, if this page under password protection
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.listFiles = function(id, password, cb){
       return _request({
@@ -1748,11 +1754,11 @@
      * Returns link for download all sended files as zip archive.
      * @memberof API
      * @instance
-     * @method keepAlive
+     * @method getDownloadAllFilesLink
      * @param {string} id download page id
      * @param {string} password for download page, if this page under password protection
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getDownloadAllFilesLink = function(id, password, cb){
       return _request({
@@ -1766,12 +1772,12 @@
      * Returns link for download specified sended files as zip archive.
      * @memberof API
      * @instance
-     * @method keepAlive
+     * @method getDownloadFilesLink
      * @param {string} id download page id
      * @param {array} links selected files ids
      * @param {string} password for download page, if this page under password protection
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.getDownloadFilesLink = function(id, links, password, cb){
       return _request({
@@ -1786,10 +1792,10 @@
      * Login to key_request page.
      * @memberof API
      * @instance
-     * @method requesttoken
+     * @method loginKeyRequest
      * @param {string} id key_request id
      * @param {function} cb callback function
-     * 
+     * @return something
      */
 
     this.loginKeyRequest = function (id, cb) {
@@ -1811,10 +1817,10 @@
      * Returns metadata for key_request page.
      * @memberof API
      * @instance
-     * @method keepAlive
+     * @method keyRequestMetadata
      * @param {string} id key_request id
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.keyRequestMetadata = function (id, cb) {
       return _request({
@@ -1834,11 +1840,11 @@
      * }
      * @memberof API
      * @instance
-     * @method keepAlive
+     * @method sendKeys
      * @param {string} id key_request id
      * @param {array}  data PGP keys metadata
      * @param {function} cb callback function
-     * 
+     * @return somethingCallExpression
      */
     this.sendKeys = function (id, data, cb) {
       return _request({
@@ -1849,6 +1855,16 @@
       });
     };
 
+    /**
+     * Returns reset/set password page metadata.
+     * @memberof API
+     * @instance
+     * @method passwordResetMetadata
+     * @param {string} id reset/set password page id
+     * @param {function} cb callback function
+     * @return somethingCallExpression
+     */
+
     this.passwordResetMetadata = function(id, cb){
       return _request( {
         method   : 'GET',
@@ -1856,6 +1872,22 @@
         callback : cb
       } );
     };
+
+    /**
+     * Sets new password to account. Check 'data' example below.
+     * @example
+     * {
+     *  password: "PR6M3ryAJC8+XvVZqggk+A==",
+     *  session_key: "8LkG0mKO67+MsbRhSLr0gUYMQ2sETavseyUMkqkGxYf1yTPYX9EeiAlIAAuCpDbbxQlxyalsaTOXwSfUDNB6sz9bOzumNz+JRKxktHspS8PaDlhEHL+CGp26140TLY4kEk81OCVB7B3LnqGu3SYTehIeUrX81O8N7RA1/4RSgQ=="
+     * }
+     * @memberof API
+     * @instance
+     * @method sendKeys
+     * @param {string} id key_request id
+     * @param {array}  data information about new password
+     * @param {function} cb callback function
+     * @return somethingCallExpression
+     */
 
     this.saveResetPswd = function(id, data, cb){
       return _request( {
